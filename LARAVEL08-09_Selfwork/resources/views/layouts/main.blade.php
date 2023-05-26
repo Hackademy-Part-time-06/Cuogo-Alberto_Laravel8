@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CREATE BOOK</title>
+    <title>{{ $title ?? '' }}</title>
+
+    <link rel="icon" type="image/x-icon" href="\img\book_favicon.ico">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body>
-    <h1>CREATE BOOK</h1>
 
-    <form action="" method="POST">
-        @csrf
-        @method(POST)
+<body class="container-fluid h-100 p-0">
+    <x-navbar />
 
-    </form>
+    <main class="container pt-5 px-5">
+        {{ $slot }}
+    </main>
 </body>
+
 </html>
