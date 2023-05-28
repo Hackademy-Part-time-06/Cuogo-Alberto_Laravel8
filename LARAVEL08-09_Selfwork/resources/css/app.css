@@ -25,3 +25,8 @@ h1 {
 #books .list-group-item:hover a{
     color: white !important;
 }
+
+.card-img {
+    max-height: 80vh;
+    width: auto;
+}

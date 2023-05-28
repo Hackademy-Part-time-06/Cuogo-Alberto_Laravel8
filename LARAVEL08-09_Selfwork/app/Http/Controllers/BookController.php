@@ -19,6 +19,13 @@ class BookController extends Controller
     }
 
     public function store(BookRequest $request) {
+        $path_image = 'https://placehold.co/600x400?text=image+not+present';
+
+        if ($request->hasFile('img') && $request->file('img')->isValid()) {
+            $path_name = $request->file('img')->getClientOriginalName();
+            $path_image = $request->file('img')->storeAs('public/images/cover', $path_name);
+        }
+
         // $request -> validate([
         //     'title' => 'required|string',
         //     'author' => 'required|string',
@@ -28,6 +35,7 @@ class BookController extends Controller
 
         Book::create([
             'title' =>$request->title,
+            'img' =>$path_image,
             'author' =>$request->author,
             'pages' =>$request->pages,
             'year' =>$request->year
