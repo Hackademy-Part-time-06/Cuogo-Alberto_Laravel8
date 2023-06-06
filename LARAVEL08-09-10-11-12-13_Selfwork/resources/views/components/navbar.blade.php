@@ -12,6 +12,24 @@
                         href="{{ route($link['uri']) }}">{{$link['label']}} <i class="bi {{$link["icon"]}}@if (Route::currentRouteName() == $link['uri'])-fill @endif"></i></a>
                 </li>
                 @endforeach
+
+                @auth
+                <li class="nav-item fs-5 pt-1 pe-3">
+                    <p class="text-white">Ciao, {{Auth::user()->name}}</p>
+                </li>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="btn btn-danger" onclick="event.preventDefault(); this.closest('form').submit();">Log Out</button>
+                </form>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a href="{{ route('login') }}" class="btn btn-light px-4 fw-bold">Log In</a>
+                </li>
+                <li class="nav-item  ms-2">
+                    <a href="{{ route('register') }}" class="btn btn-primary px-4 fw-bold">Register</a>
+                </li>
+                @endauth
             </ul>
         </div>
     </div>

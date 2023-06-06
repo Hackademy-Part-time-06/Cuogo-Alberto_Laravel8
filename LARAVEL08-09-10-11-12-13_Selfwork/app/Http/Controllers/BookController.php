@@ -19,7 +19,7 @@ class BookController extends Controller
     }
 
     public function store(BookRequest $request) {
-        $path_image = 'https://placehold.co/600x400?text=image+not+present';
+        $path_image = 'public\images\pix-vertical-placeholder.jpg';
 
         if ($request->hasFile('img') && $request->file('img')->isValid()) {
             $path_name = $request->file('img')->getClientOriginalName();

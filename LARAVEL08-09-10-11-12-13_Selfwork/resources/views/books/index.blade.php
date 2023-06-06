@@ -10,15 +10,43 @@
         </div>
     @endif
 
-    <div class="d-flex justify-content-center">
-        <ul id="books" class="list-group">
-            @foreach ($books as $book)
-                <li class="list-group-item py-4 px-5 book text-center">
-                    <a class="text-dark text-decoration-none" href="{{ route('books.show', str_replace(' ', '-', $book['id'])) }}">
-                        <b>{{ $book['title'] }}</b> - {{ $book['author'] }} <i class="bi bi-search ms-2"></i>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+    <div class="container">
+        <table class="table border mt-2">
+            <thead class="text-light bg-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($books as $book)
+                <tr class="align-middle">
+                    <th scope="row">{{$book['id']}}</th>
+                    <td>{{$book['title']}}</td>
+                    <td>{{$book['author']}}</td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{{route('books.show', ['book' => $book['id']])}}"
+                                class="btn btn-primary me-md-2"><i class="bi bi-search"></i></a>
+                            {{-- <a href="{{route('books.edit', ['book' => $book['id']])}}"
+                                class="btn btn-warning me-md-2">Modifica</a>
+                            <form action="{{route('books.destroy', compact('book'))}}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Cancella</button>
+                            </form> --}}
+
+                        </div>
+
+
+                    </td>
+                </tr>
+                @empty
+                <tr colspan="4"> </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
 </x-main>
