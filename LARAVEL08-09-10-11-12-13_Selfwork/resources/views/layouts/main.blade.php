@@ -13,10 +13,10 @@
 
 </head>
 
-<body class="container-fluid h-100 p-0">
+<body class="container-fluid min-vh-100 p-0">
     <x-navbar />
 
-    <main class="container pt-5 px-5 min-vh-100">
+    <main class="container pt-5 px-5">
         {{ $slot }}
     </main>
 </body>

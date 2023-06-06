@@ -30,13 +30,18 @@
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <a href="{{route('books.show', ['book' => $book['id']])}}"
                                 class="btn btn-primary me-md-2"><i class="bi bi-search"></i></a>
-                            {{-- <a href="{{route('books.edit', ['book' => $book['id']])}}"
-                                class="btn btn-warning me-md-2">Modifica</a>
+
+                            @auth
+
+                            <a href="{{route('books.edit', ['book' => $book['id']])}}"
+                                class="btn btn-warning me-md-2"><i class="bi bi-pencil-square"></i></a>
                             <form action="{{route('books.destroy', compact('book'))}}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger">Cancella</button>
-                            </form> --}}
+                                <button type="submit" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                            </form>
+                        
+                            @endauth
 
                         </div>
 

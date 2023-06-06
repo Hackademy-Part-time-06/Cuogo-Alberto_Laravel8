@@ -15,7 +15,7 @@
 
                 @auth
                 <li class="nav-item fs-5 pt-1 pe-3">
-                    <p class="text-white">Ciao, {{Auth::user()->name}}</p>
+                    <p class="text-white">Hi, {{Auth::user()->name}}</p>
                 </li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf

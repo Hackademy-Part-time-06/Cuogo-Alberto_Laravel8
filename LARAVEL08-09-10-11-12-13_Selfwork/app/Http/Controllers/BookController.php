@@ -19,7 +19,7 @@ class BookController extends Controller
     }
 
     public function store(BookRequest $request) {
-        $path_image = 'public\images\pix-vertical-placeholder.jpg';
+        $path_image = '';
 
         if ($request->hasFile('img') && $request->file('img')->isValid()) {
             $path_name = $request->file('img')->getClientOriginalName();
@@ -55,5 +55,28 @@ class BookController extends Controller
 
         //return view('show', ['book' => $book]);
         return view('books.show', compact('book'));
+    }
+
+    public function edit(Book $book) {
+        return view('books.edit', compact('book'));
+    }
+
+    public function update(BookRequest $request, Book $book) {
+        $path_image = $book->img;
+
+        if ($request->hasFile('img') && $request->file('img')->isValid()) {
+            $path_name = $request->file('img')->getClientOriginalName();
+            $path_image = $request->file('img')->storeAs('public/images/cover', $path_name);
+        }
+
+        $book->update([
+            'title' =>$request->title,
+            'img' =>$path_image,
+            'author' =>$request->author,
+            'pages' =>$request->pages,
+            'year' =>$request->year
+        ]);
+        return redirect()->route('books.index')
+            ->with('success', 'Book edited successfully!');
     }
 }
