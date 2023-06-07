@@ -16,7 +16,7 @@ class Navbar extends Component
     {
         $this->links = [
             ['uri' => 'books.index', 'label' => 'All Books', 'icon' => 'bi-bookmark-heart'],
-            ['uri' => 'books.create', 'label' => 'Add Book', 'icon' => 'bi-bookmark-plus'],
+            // ['uri' => 'books.create', 'label' => 'Add Book', 'icon' => 'bi-bookmark-plus'],
         ];
     }
 

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-7">
-                <img class="card-img" src="{{empty($book->image) ? Storage::url('\images\placeholder.jpg') : Storage::url($book->image)}}" alt="{{ $book->title }}">
+                <img class="card-img" src="{{empty($book->img) ? Storage::url('\images\placeholder.jpg') : Storage::url($book->img)}}" alt="{{ $book->title }}">
             </div>
 
             <div class="col-5 justify-content-center align-items-center">

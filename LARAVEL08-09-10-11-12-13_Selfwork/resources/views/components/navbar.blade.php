@@ -14,14 +14,19 @@
                 @endforeach
 
                 @auth
-                <li class="nav-item fs-5 pt-1 pe-3">
-                    <p class="text-white">Hi, {{Auth::user()->name}}</p>
-                </li>
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button class="btn btn-danger" onclick="event.preventDefault(); this.closest('form').submit();">Log Out</button>
-                </form>
-                </li>
+                <li class="nav-item dropdown fs-5 pe-3">
+                    <a class="nav-link dropdown-toggle text-white fw-semibold" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Hi, {{Auth::user()->name}}
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{route('books.create')}}"><i class="bi bi-bookmark-plus me-2"></i>Add Book</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li class="px-2"><form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="btn btn-danger w-100 fw-bold" onclick="event.preventDefault(); this.closest('form').submit();">Log Out</button>
+                    </form></li>
+                    </ul>
+                  </li>
                 @else
                 <li class="nav-item">
                     <a href="{{ route('login') }}" class="btn btn-light px-4 fw-bold">Log In</a>

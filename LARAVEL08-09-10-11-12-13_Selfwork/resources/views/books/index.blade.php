@@ -4,11 +4,7 @@
     <h1 class="text-center mb-4">ALL BOOKS</h1>
 
 
-    @if (session('success')) 
-        <div class="d-flex justify-content-center">
-            <div class="text-center w-50 bg-success rounded text-light mb-4 px-5 py-3 fs-3 fw-bold">{{session('success')}}</div> 
-        </div>
-    @endif
+    <x-session-success />
 
     <div class="container">
         <table class="table border mt-2">
@@ -54,4 +50,10 @@
             </tbody>
         </table>
     </div>
+
+    @auth
+        <div class="d-flex justify-content-center mt-5">
+            <a href="{{ route('books.create') }}" class="text-center w-50 bg-primary rounded text-light mb-4 px-5 py-3 fs-3 text-decoration-none">Add Book<i class="bi bi-bookmark-plus ms-3"></i></a> 
+        </div>
+    @endauth
 </x-main>

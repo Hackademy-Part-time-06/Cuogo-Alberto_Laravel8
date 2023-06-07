@@ -1,4 +1,6 @@
 <x-main>
+    <x-slot name="title">LIBRARY | Register</x-slot>
+
     <div class="container my-5">
         <h1 class="text-center mb-4">Registration</h1>
         <div class="row justify-content-center">

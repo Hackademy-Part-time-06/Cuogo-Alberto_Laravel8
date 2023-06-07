@@ -1,4 +1,7 @@
 <x-main>
+    <x-slot name="title">LIBRARY | Login</x-slot>
+
+
     <div class="container my-5">
         <h1 class="text-center mb-4">Log In</h1>
         <div class="row justify-content-center">
