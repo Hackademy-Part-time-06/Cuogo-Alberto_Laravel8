@@ -38,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 //   ]
 // ]);
 
-Route::get('/home', [PageController::class, 'homepage'])->name('homepage');
+Route::get('/', [PageController::class, 'homepage'])->name('homepage');
 
 Route::resource('books', BookController::class);
 

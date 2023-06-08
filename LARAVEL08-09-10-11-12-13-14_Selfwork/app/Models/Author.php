@@ -14,4 +14,9 @@ class Author extends Model
     protected $casts = [
         'birthday' => 'datetime',
     ];
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
 }
