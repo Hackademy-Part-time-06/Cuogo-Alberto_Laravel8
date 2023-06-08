@@ -15,8 +15,9 @@ class Navbar extends Component
     public function __construct()
     {
         $this->links = [
-            ['uri' => 'books.index', 'label' => 'All Books', 'icon' => 'bi-bookmark-heart'],
-            // ['uri' => 'books.create', 'label' => 'Add Book', 'icon' => 'bi-bookmark-plus'],
+            ['uri' => 'books.index', 'label' => 'Books', 'icon' => 'bi-bookmark-heart'],
+            ['uri' => 'authors.index', 'label' => 'Authors', 'icon' => 'bi-people'],
+            ['uri' => 'categories.index', 'label' => 'Categories', 'icon' => 'bi-tags'],
         ];
     }
 

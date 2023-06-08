@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('authors', function (Blueprint $table) {
             $table->id();
-            // Titolo del libro massimo 150 caratteri
-            $table->string('title', 150);
-            // Numero pagine di tipo intero
-            $table->integer('pages');
+            $table->string('firstname');
+            $table->string('surname');
+            $table->datetime('birthday')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('authors');
     }
 };

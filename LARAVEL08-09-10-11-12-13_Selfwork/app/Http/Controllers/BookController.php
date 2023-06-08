@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     public function index() {
         $books = Book::all();
 
@@ -36,12 +41,13 @@ class BookController extends Controller
         Book::create([
             'title' =>$request->title,
             'img' =>$path_image,
-            'author' =>$request->author,
+            // 'author' =>$request->author,
             'pages' =>$request->pages,
             'year' =>$request->year
         ]);
 
-        return redirect()->route('books.index')->with('success', 'Book successfully added!');
+        return redirect()->route('books.index')
+            ->with('success', 'Book successfully added!');
     }
 
     public function show(Book $book) {
@@ -77,6 +83,13 @@ class BookController extends Controller
             'year' =>$request->year
         ]);
         return redirect()->route('books.index')
-            ->with('success', 'Book edited successfully!');
+            ->with('edit', 'Book edited successfully!');
+    }
+
+    public function destroy(Book $book)
+    {
+        $book->delete();
+        return redirect()->route('books.index')
+            ->with('delete', 'Book deleted successfully!');
     }
 }

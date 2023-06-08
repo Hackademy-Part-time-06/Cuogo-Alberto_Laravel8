@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/books', 301);
-
 // Route::get('/books', [BookController::class, 'index'])->name('books.index');
 // Route::get('/books/create', [BookController::class, 'create'])->name('books.create')->middleware('auth');
 // Route::post('/books/save', [BookController::class, 'store'])->name('books.store');
@@ -25,16 +26,24 @@ Route::redirect('/', '/books', 301);
 // Route::put('/books/{book}/update', [BookController::class, 'update'])->name('books.update');
 // Route::delete('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
 
-Route::resource('books', BookController::class, [
-  'names' => [
-    'index' => 'books.index',
-    'create' => 'books.create',
-    'store' => 'books.store',
-    'show' => 'books.show',
-    'edit' => 'books.edit',
-    'update' => 'books.update',
-    'destroy' => 'books.destroy',
-  ]
-]);
+// Route::resource('books', BookController::class, [
+//   'names' => [
+//     'index' => 'books.index',
+//     'create' => 'books.create',
+//     'store' => 'books.store',
+//     'show' => 'books.show',
+//     'edit' => 'books.edit',
+//     'update' => 'books.update',
+//     'destroy' => 'books.destroy',
+//   ]
+// ]);
+
+Route::get('/home', [PageController::class, 'homepage'])->name('homepage');
+
+Route::resource('books', BookController::class);
+
+Route::resource('authors', AuthorController::class);
+
+Route::resource('categories', CategoryController::class);
 
 

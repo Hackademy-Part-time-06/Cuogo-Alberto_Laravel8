@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('books', function (Blueprint $table) {
             // Anno di pubblicazione posizionata dopo author
-            $table->integer('year')->after('author');
+            $table->integer('year')->after('pages');
         });
     }
 

@@ -24,7 +24,7 @@ class BookRequest extends FormRequest
         return [
             'title' => 'required|string',
             'img' => 'mimes: jpg,jpeg,png',
-            'author' => 'required|string',
+            // 'author' => 'required|string',
             'pages' => 'required|numeric',
             'year' => 'required|numeric'
         ];
@@ -35,8 +35,8 @@ class BookRequest extends FormRequest
             'title.required' => 'Title is required',
             'title.string' => 'Title must be of type string',
             'img.mimes' => 'Images can be only JPG, JPEG, PNG ',
-            'author.required' => 'Author is required',
-            'author.required' => 'Author must be of type string',
+            // 'author.required' => 'Author is required',
+            // 'author.string' => 'Author must be of type string',
             'pages.required' => 'N° of Pages in the Book required',
             'pages.numeric' => 'Pages must include numbers only',
             'year.required' => 'Year is required',

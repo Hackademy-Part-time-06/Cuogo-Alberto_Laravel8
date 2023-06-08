@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container px-5 align-items-center">
-        <a class="navbar-brand" href="{{ Route('books.index')}}"><img src="\img\book_favicon.ico" alt="" height="40rem"> Library</a>
+        <a class="navbar-brand" href="{{ Route('homepage')}}"><img src="\img\book_favicon.ico" alt="" height="40rem"> Library</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
                 class="navbar-toggler-icon"></span></button>
@@ -20,6 +20,8 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="{{route('books.create')}}"><i class="bi bi-bookmark-plus me-2"></i>Add Book</a></li>
+                      <li><a class="dropdown-item" href="{{route('authors.create')}}"><i class="bi bi-person-plus me-2"></i>Add Author</a></li>
+                      <li><a class="dropdown-item" href="{{route('categories.create')}}"><i class="bi bi-folder-plus me-2"></i>Add Category</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li class="px-2"><form action="{{ route('logout') }}" method="POST">
                         @csrf

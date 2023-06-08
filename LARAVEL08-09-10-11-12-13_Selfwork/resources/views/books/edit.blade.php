@@ -5,7 +5,7 @@
 
 
     <div class="container px-5">
-        <div class=" rounded-3 py-5 px-4 px-md-5 mb-5">
+        <div class=" rounded-3 py-4 px-4 px-md-5 mb-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-8 col-xl-6">
 
@@ -85,7 +85,7 @@
                         @endif
 
                         <div>
-                            <button class="btn btn-primary btn-lg p-2 w-100" type="submit">Edit Book</button>
+                            <button class="btn btn-primary btn-lg p-2 w-100" type="submit">Edit Book<i class="bi bi-pencil ms-2"></i></button>
                         </div>
                     </form>
                 </div>
