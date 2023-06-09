@@ -3,7 +3,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-7">
+            <div class="col-7 d-flex justify-content-center">
                 <img class="card-img" src="{{empty($book->img) ? Storage::url('\images\placeholder.jpg') : Storage::url($book->img)}}" alt="{{ $book->title }}">
             </div>
 
@@ -13,7 +13,8 @@
                 <ul class="list-group">
 
                     <li class="list-group-item py-4 px-5 book text-center">
-                        <b>Author</b> - {{ $book->author }}
+                        <b>Author</b> - {{$book->author->firstname}} {{$book->author->surname}}
+                        <a href="{{route('authors.show', ['author' => $book['author_id']])}}"><i class="bi bi-search text-dark ms-2"></i></a>
                     </li>
                     <li class="list-group-item py-4 px-5 book text-center">
                         <b>Year of Publication</b> - {{ $book->year }}
@@ -24,10 +25,6 @@
 
                 </ul>
 
-                <div class="d-flex justify-content-center mt-5">
-                    <a class="btn btn-warning text-dark fs-3 px-5" href="{{ route('homepage') }}"><i
-                            class="bi bi-house-heart-fill"></i> Homepage</a>
-                </div>
             </div>
         </div>
     </div>

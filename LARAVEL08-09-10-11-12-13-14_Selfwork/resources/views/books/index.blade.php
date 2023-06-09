@@ -10,17 +10,18 @@
         <table class="table border mt-2">
             <thead class="text-light bg-dark">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
+                    <th scope="col" class="text-center col-2">#</th>
+                    <th scope="col" class="col-4">Title</th>
+                    <th scope="col" class="col-3">Author</th>
+                    <th scope="col" class="col-3"></th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($books as $book)
                 <tr class="align-middle">
-                    <th scope="row">{{$book['id']}}</th>
+                    <th scope="row" class="text-center">{{$book['id']}}</th>
                     <td>{{$book['title']}}</td>
-                    <td>{{$book['author']}}</td>
+                    <td>{{$book->author->firstname}} {{$book->author->surname}}</td>
                     <td>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <a href="{{route('books.show', ['book' => $book['id']])}}"

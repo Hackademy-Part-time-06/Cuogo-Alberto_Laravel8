@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
+use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class BookController extends Controller
     }
 
     public function create() {
-        return view('books.create');
+        $authors = Author::all();
+        return view('books.create', compact('authors'));
     }
 
     public function store(BookRequest $request) {
@@ -41,7 +43,7 @@ class BookController extends Controller
         Book::create([
             'title' =>$request->title,
             'img' =>$path_image,
-            // 'author' =>$request->author,
+            'author_id' =>$request->author_id,
             'pages' =>$request->pages,
             'year' =>$request->year
         ]);
@@ -60,11 +62,13 @@ class BookController extends Controller
         //$mybook = Book::findOrFail($book);
 
         //return view('show', ['book' => $book]);
-        return view('books.show', compact('book'));
+        $authors = Author::all();
+        return view('books.show', ['book' => $book, 'authors' => $authors]);
     }
 
     public function edit(Book $book) {
-        return view('books.edit', compact('book'));
+        $authors = Author::all();
+        return view('books.edit', ['book' => $book, 'authors' => $authors]);
     }
 
     public function update(BookRequest $request, Book $book) {
@@ -78,7 +82,7 @@ class BookController extends Controller
         $book->update([
             'title' =>$request->title,
             'img' =>$path_image,
-            'author' =>$request->author,
+            'author_id' =>$request->author_id,
             'pages' =>$request->pages,
             'year' =>$request->year
         ]);

@@ -6,19 +6,20 @@
 
     <x-session />
 
-    <div class="container">
+    <div class="container w-75">
         <table class="table border mt-2">
             <thead class="text-light bg-dark">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Firstname</th>
-                    <th scope="col">Surname</th>
+                    <th scope="col" class="text-center col-2">#</th>
+                    <th scope="col" class="col-3">Firstname</th>
+                    <th scope="col" class="col-3">Surname</th>
+                    <th scope="col" class="col-4"></th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($authors as $author)
                 <tr class="align-middle">
-                    <th scope="row">{{$author['id']}}</th>
+                    <th scope="row" class="text-center">{{$author['id']}}</th>
                     <td>{{$author['firstname']}}</td>
                     <td>{{$author['surname']}}</td>
                     <td>

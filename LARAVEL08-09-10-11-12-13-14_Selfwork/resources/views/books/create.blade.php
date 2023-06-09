@@ -24,10 +24,13 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="author" name="author" type="text"
-                                value="{{ old('author') }}" placeholder="Author Book">
-                            <label for="author">Author of the Book</label>
-                            @error('author')
+                            <select class="form-control" id="author_id" name="author_id">
+                                @foreach ($authors as $author)
+                                    <option value="{{$author->id}}">{{$author->firstname}} {{$author->surname}}</option>
+                                @endforeach
+                            </select>
+                            <label for="author_id">Author of the Book</label>
+                            @error('author_id')
                             <span class="text-danger">
                                 {{$message}}
                             </span>

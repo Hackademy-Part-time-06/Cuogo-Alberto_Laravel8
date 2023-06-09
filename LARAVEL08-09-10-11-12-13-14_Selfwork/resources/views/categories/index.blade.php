@@ -6,18 +6,19 @@
 
     <x-session />
 
-    <div class="container">
+    <div class="container w-50">
         <table class="table border mt-2">
             <thead class="text-light bg-dark">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
+                    <th scope="col" class="text-center col-2">#</th>
+                    <th scope="col" class="col-5">Name</th>
+                    <th scope="col" class="col-5"></th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($categories as $category)
                 <tr class="align-middle">
-                    <th scope="row">{{$category['id']}}</th>
+                    <th scope="row" class="text-center">{{$category['id']}}</th>
                     <td>{{$category['name']}}</td>
                     <td>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
