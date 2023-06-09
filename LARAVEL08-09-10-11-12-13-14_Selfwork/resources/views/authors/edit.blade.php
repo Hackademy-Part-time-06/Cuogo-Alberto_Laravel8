@@ -36,7 +36,7 @@
 
                         <div class="form-floating mb-3">
                             <input class="form-control" id="birthday" name="birthday" type="date"
-                                value="{{ isset($author->birthday) ? $author->birthday->format('d-m-Y') : ''}}" placeholder="Birthday Author">
+                                value="{{ isset($author->birthday) ? $author->birthday->format('Y-m-d') : ''}}" placeholder="Birthday Author">
                             <label for="birthday">Author's Birthday</label>
                             @error('birthday')
                             <span class="text-danger">

@@ -2,15 +2,18 @@
     <x-slot name="title">LIBRARY | {{ $book->title }}</x-slot>
 
     <div class="container">
-        <div class="row">
+        <div class="row min-vh-75 align-items-center">
             <div class="col-7 d-flex justify-content-center">
                 <img class="card-img" src="{{empty($book->img) ? Storage::url('\images\placeholder.jpg') : Storage::url($book->img)}}" alt="{{ $book->title }}">
             </div>
 
             <div class="col-5 justify-content-center align-items-center">
-                <h1 class="text-center my-5">{{ $book->title }}</h1>
+                <h1 class="text-center">{{ $book->title }}</h1>
 
-                <ul class="list-group">
+                <button class="btn btn-dark fw-semibold shadow my-4 d-block mx-auto"><i class="bi bi-tags me-2"></i>Category</button>
+
+
+                <ul class="list-group shadow">
 
                     <li class="list-group-item py-4 px-5 book text-center">
                         <b>Author</b> - {{$book->author->firstname}} {{$book->author->surname}}

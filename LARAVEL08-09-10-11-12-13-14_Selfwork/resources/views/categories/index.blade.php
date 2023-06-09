@@ -22,10 +22,10 @@
                     <td>{{$category['name']}}</td>
                     <td>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="{{route('categories.show', ['category' => $category['id']])}}"
-                                class="btn btn-primary me-md-2"><i class="bi bi-search"></i></a>
 
                             @auth
+                            <a href="{{route('categories.show', ['category' => $category['id']])}}"
+                                class="btn btn-primary me-md-2"><i class="bi bi-search"></i></a>
 
                             <a href="{{route('categories.edit', ['category' => $category['id']])}}"
                                 class="btn btn-warning me-md-2"><i class="bi bi-pencil-square"></i></a>

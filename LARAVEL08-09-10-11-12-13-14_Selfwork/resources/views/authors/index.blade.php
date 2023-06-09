@@ -11,9 +11,9 @@
             <thead class="text-light bg-dark">
                 <tr>
                     <th scope="col" class="text-center col-2">#</th>
-                    <th scope="col" class="col-3">Firstname</th>
+                    <th scope="col" class="col-2">Firstname</th>
                     <th scope="col" class="col-3">Surname</th>
-                    <th scope="col" class="col-4"></th>
+                    <th scope="col" class="col-5"></th>
                 </tr>
             </thead>
             <tbody>
