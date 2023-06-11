@@ -1,5 +1,6 @@
 @import 'bootstrap';
 @import 'bootstrap-icons';
+@import url('resources/css/404.css');
 
 h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
