@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('books', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');
             $table->foreignId('user_id')->after('author_id')->nullable()->constrained();
         });
     }

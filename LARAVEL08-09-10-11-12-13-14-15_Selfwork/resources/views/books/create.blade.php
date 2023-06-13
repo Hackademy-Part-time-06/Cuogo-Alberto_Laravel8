@@ -17,23 +17,42 @@
                                 value="{{ old('title') }}" placeholder="Title Book">
                             <label for="title">Book's Title</label>
                             @error('title')
-                            <span class="text-danger">
-                                {{$message}}
-                            </span>
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
                             @enderror
                         </div>
 
                         <div class="form-floating mb-3">
-                            <select class="form-control" id="author_id" name="author_id">
+                            <select class="form-select" id="author_id" name="author_id">
                                 @foreach ($authors as $author)
-                                    <option value="{{$author->id}}">{{$author->firstname}} {{$author->surname}}</option>
+                                    <option value="{{ $author->id }}">{{ $author->firstname }} {{ $author->surname }}
+                                    </option>
                                 @endforeach
                             </select>
                             <label for="author_id">Author of the Book</label>
                             @error('author_id')
-                            <span class="text-danger">
-                                {{$message}}
-                            </span>
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            @foreach ($categories as $category)
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="categories[]"
+                                        value="{{ $category->id }}" id="categories-{{ $category->id }}">
+                                    <label class="form-check-label" for="categories-{{ $category->id }}">
+                                        {{ $category->name }}
+                                    </label>
+                                </div>
+                            @endforeach
+
+                            @error('category_id')
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
                             @enderror
                         </div>
 
@@ -42,9 +61,9 @@
                                 value="{{ old('pages') }}" placeholder="Pages Book">
                             <label for="pages">N° of Pages in the Book</label>
                             @error('pages')
-                            <span class="text-danger">
-                                {{$message}}
-                            </span>
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
                             @enderror
                         </div>
 
@@ -53,9 +72,9 @@
                                 value="{{ old('year') }}" placeholder="Year Book">
                             <label for="year">Year of the Book</label>
                             @error('year')
-                            <span class="text-danger">
-                                {{$message}}
-                            </span>
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
                             @enderror
                         </div>
 
@@ -64,9 +83,9 @@
                             <input class="form-control" id="img" name="img" type="file"
                                 value="{{ old('img') }}" placeholder="Image Book">
                             @error('img')
-                            <span class="text-danger">
-                                {{$message}}
-                            </span>
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
                             @enderror
                         </div>
 
@@ -81,7 +100,8 @@
                         @endif
 
                         <div>
-                            <button class="btn btn-primary btn-lg p-2 w-100" type="submit">Add Book<i class="bi bi-bookmark-plus ms-2"></i></button>
+                            <button class="btn btn-primary btn-lg p-2 w-100" type="submit">Add Book<i
+                                    class="bi bi-bookmark-plus ms-2"></i></button>
                         </div>
                     </form>
                 </div>

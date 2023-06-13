@@ -10,9 +10,10 @@
         <table class="table border mt-2">
             <thead class="text-light bg-dark">
                 <tr>
-                    <th scope="col" class="text-center col-2">#</th>
-                    <th scope="col" class="col-4">Title</th>
-                    <th scope="col" class="col-3">Author</th>
+                    <th scope="col" class="text-center col-1">#</th>
+                    <th scope="col" class="text-center col-1">IMG</th>
+                    <th scope="col" class="col-4">TITLE</th>
+                    <th scope="col" class="col-3">AUTHOR</th>
                     <th scope="col" class="col-3"></th>
                 </tr>
             </thead>
@@ -20,6 +21,9 @@
                 @forelse ($books as $book)
                 <tr class="align-middle">
                     <th scope="row" class="text-center">{{$loop->iteration}}</th>
+                    <td class="text-center"><img class="card-img mh-8"
+                        src="{{ empty($book->img) ? Storage::url('\images\placeholder.jpg') : Storage::url($book->img) }}"
+                        alt="{{ $book->title }}"></td>
                     <td>{{$book['title']}}</td>
                     <td>{{$book->author->firstname}} {{$book->author->surname}}</td>
                     <td>

@@ -6,13 +6,13 @@
 
     <x-session />
 
-    <div class="container w-75">
+    <div class="container w-50">
         <table class="table border mt-2">
             <thead class="text-light bg-dark">
                 <tr>
                     <th scope="col" class="text-center col-2">#</th>
-                    <th scope="col" class="col-2">Firstname</th>
-                    <th scope="col" class="col-3">Surname</th>
+                    <th scope="col" class="col-2">FIRSTNAME</th>
+                    <th scope="col" class="col-3">SURNAME</th>
                     <th scope="col" class="col-5"></th>
                 </tr>
             </thead>

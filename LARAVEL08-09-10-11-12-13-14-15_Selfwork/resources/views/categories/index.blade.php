@@ -6,27 +6,28 @@
 
     <x-session />
 
-    <div class="container w-50">
+    <div class="container w-30">
         <table class="table border mt-2">
             <thead class="text-light bg-dark">
                 <tr>
-                    <th scope="col" class="text-center col-2">#</th>
-                    <th scope="col" class="col-5">Name</th>
-                    <th scope="col" class="col-5"></th>
+                    {{-- <th scope="col" class="text-center col-2">#</th> --}}
+                    <th scope="col" class="text-center col-8">NAME</th>
+                    <th scope="col" class="col-4"></th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($categories as $category)
                 <tr class="align-middle">
-                    <th scope="row" class="text-center">{{$category['id']}}</th>
-                    <td>{{$category['name']}}</td>
+                    {{-- <th scope="row" class="text-center">{{$category['id']}}</th> --}}
+                    <td scope="row" class="text-center">{{$category['name']}}</td>
                     <td>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-                            @auth
                             <a href="{{route('categories.show', ['category' => $category['id']])}}"
                                 class="btn btn-primary me-md-2"><i class="bi bi-search"></i></a>
 
+                            @auth
+                        
                             <a href="{{route('categories.edit', ['category' => $category['id']])}}"
                                 class="btn btn-warning me-md-2"><i class="bi bi-pencil-square"></i></a>
                             <form action="{{route('categories.destroy', compact('category'))}}" method="POST">

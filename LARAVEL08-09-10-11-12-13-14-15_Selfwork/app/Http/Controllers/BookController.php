@@ -6,6 +6,7 @@ use App\Http\Requests\BookRequest;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,8 +30,8 @@ class BookController extends Controller
 
     public function create() {
         $authors = Author::all();
-        $users = User::all();
-        return view('books.create', ['authors' => $authors, 'users' => $users]);
+        $categories = Category::all();
+        return view('books.create', compact('authors', 'categories'));
     }
 
     public function store(BookRequest $request) {
@@ -65,6 +66,8 @@ class BookController extends Controller
             'user_id' =>Auth::user()->id
         ]);
 
+        $data->categories()->attach($request->categories);
+
 
         return redirect()->route('books.index')
             ->with('success', 'Book successfully added!');
@@ -89,7 +92,8 @@ class BookController extends Controller
         }
 
         $authors = Author::all();
-        return view('books.edit', ['book' => $book, 'authors' => $authors]);
+        $categories = Category::all();
+        return view('books.edit', ['book' => $book, 'authors' => $authors, 'categories' => $categories]);
     }
 
     public function update(BookRequest $request, Book $book) {
@@ -107,12 +111,18 @@ class BookController extends Controller
             'pages' =>$request->pages,
             'year' =>$request->year
         ]);
+
+        //$book->categories()->detach(); //stacco
+        //$book->categories()->attach($request->categories); // e riattacco
+        $book->categories()->sync($request->categories); //Metodo 2 in 1
+
         return redirect()->route('books.index')
             ->with('edit', 'Book edited successfully!');
     }
 
     public function destroy(Book $book)
     {
+        $book->categories()->detach();
         $book->delete();
         return redirect()->route('books.index')
             ->with('delete', 'Book deleted successfully!');
