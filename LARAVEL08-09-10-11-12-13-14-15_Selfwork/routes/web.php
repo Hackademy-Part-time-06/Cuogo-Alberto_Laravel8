@@ -39,6 +39,8 @@ use Illuminate\Support\Facades\Route;
 // ]);
 
 Route::get('/', [PageController::class, 'homepage'])->name('homepage');
+Route::get('/profile/{user_id}', [PageController::class, 'profile'])->name('profile');
+
 
 Route::resource('books', BookController::class);
 

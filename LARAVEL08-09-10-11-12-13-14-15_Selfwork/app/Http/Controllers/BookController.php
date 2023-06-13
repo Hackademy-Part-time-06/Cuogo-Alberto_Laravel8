@@ -30,7 +30,7 @@ class BookController extends Controller
 
     public function create() {
         $authors = Author::all();
-        $categories = Category::all();
+        $categories = Category::orderBy('name', 'asc')->get();
         return view('books.create', compact('authors', 'categories'));
     }
 

@@ -1,6 +1,12 @@
 @import 'bootstrap';
 @import 'bootstrap-icons';
-@import url('resources/css/404.css');
+@import './404.css';
+
+body {
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    
+}
 
 h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
@@ -17,6 +23,10 @@ h1 {
 
 .mh-8 {
     max-height: 8vh !important;
+}
+
+.mh-3 {
+    max-height: 3vh !important;
 }
 
 .h-100 {
@@ -75,3 +85,6 @@ h1 {
     width: auto;
 }
 
+#profile a::after {
+    content: none;
+}
