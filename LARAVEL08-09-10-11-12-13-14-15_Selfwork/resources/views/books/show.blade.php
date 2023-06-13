@@ -28,6 +28,8 @@
 
                 </ul>
 
+                <p class="text-center mt-4 text-dark text-opacity-50"><em>created by {{$book->user->name ?? 'Unknown'}}</em></p>
+
             </div>
         </div>
     </div>

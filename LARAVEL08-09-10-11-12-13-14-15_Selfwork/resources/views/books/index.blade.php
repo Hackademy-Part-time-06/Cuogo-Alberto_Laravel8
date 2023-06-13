@@ -19,7 +19,7 @@
             <tbody>
                 @forelse ($books as $book)
                 <tr class="align-middle">
-                    <th scope="row" class="text-center">{{$book['id']}}</th>
+                    <th scope="row" class="text-center">{{$loop->iteration}}</th>
                     <td>{{$book['title']}}</td>
                     <td>{{$book->author->firstname}} {{$book->author->surname}}</td>
                     <td>

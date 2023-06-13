@@ -7,6 +7,7 @@ use App\Models\Author;
 use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -16,7 +17,12 @@ class BookController extends Controller
     }
 
     public function index() {
-        $books = Book::all();
+        if (Auth::user()) {
+            $books = Book::where('user_id', Auth::user()->id)->get();
+        }
+        else {
+            $books = Book::all();
+        }
 
         return view('books.index', ['books' => $books]);
     }
@@ -42,13 +48,23 @@ class BookController extends Controller
         //     'year' => 'required|numeric'
         // ]);
 
-        Book::create([
+        // Auth::user()->books()->create([
+        //     'title' => $request->input('title'),
+        //     'image' => $path_image,
+        //     'author_id' => $request->author_id,
+        //     'pages' => $request->pages,
+        //     'year' => $request->year,
+        // ]);
+
+        $data = Book::create([
             'title' =>$request->title,
             'img' =>$path_image,
             'author_id' =>$request->author_id,
             'pages' =>$request->pages,
-            'year' =>$request->year
+            'year' =>$request->year,
+            'user_id' =>Auth::user()->id
         ]);
+
 
         return redirect()->route('books.index')
             ->with('success', 'Book successfully added!');
@@ -64,15 +80,16 @@ class BookController extends Controller
         //$mybook = Book::findOrFail($book);
 
         //return view('show', ['book' => $book]);
-        $authors = Author::all();
-        $users = User::all();
-        return view('books.show', ['book' => $book, 'authors' => $authors, 'users' => $users]);
+        return view('books.show', compact('book'));
     }
 
     public function edit(Book $book) {
+        if (!(Auth::user()->id == $book->user_id)) {
+            abort(401);
+        }
+
         $authors = Author::all();
-        $users = User::all();
-        return view('books.edit', ['book' => $book, 'authors' => $authors, 'users' => $users]);
+        return view('books.edit', ['book' => $book, 'authors' => $authors]);
     }
 
     public function update(BookRequest $request, Book $book) {
