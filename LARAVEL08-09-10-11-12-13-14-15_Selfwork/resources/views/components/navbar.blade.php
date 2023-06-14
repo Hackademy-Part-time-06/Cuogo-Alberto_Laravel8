@@ -14,20 +14,23 @@
                                 class="bi {{ $link['icon'] }}@if (Route::currentRouteName() == $link['uri']) -fill @endif"></i></a>
                     </li>
                 @endforeach
+                
 
                 @auth
                     <li id="profile" class="nav-item dropdown fs-5 pe-3">
                         <a class="nav-link dropdown-toggle text-white fw-semibold" href="" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Hi, {{ Auth::user()->name }} <img class="card-img mh-3 ms-1"
-                            src="/img/books.png{{--{{ empty($book->img) ? Storage::url('\images\placeholder.jpg') : Storage::url($book->img) }}--}}"
-                            alt="{{--{{ $book->title }}--}}">
+                            Hi, {{ Auth::user()->name }} <img class="card-img max-vh-3 ms-1 rounded-circle"
+                            src="@if (Auth::user()->gender == 'Female') 
+                                    {{empty(Auth::user()->img) ? Storage::url('images/female-placeholder.jpg') : Storage::url(Auth::user()->img)}}
+                                @elseif (Auth::user()->gender == 'Male') 
+                                    {{empty(Auth::user()->img) ? Storage::url('images/male-placeholder.jpeg') : Storage::url(Auth::user()->img)}}
+                                @endif"
+                            alt="">
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-bold" href="{{ route('profile', ['user_id' => Auth::user()->id]) }}">
-                                {{ Auth::user()->name }} <img class="card-img mh-3 ms-5"
-                                src="/img/books.png{{--{{ empty($book->img) ? Storage::url('\images\placeholder.jpg') : Storage::url($book->img) }}--}}"
-                                alt="{{--{{ $book->title }}--}}"></a></li>
+                        <ul class="dropdown-menu w-110">
+                            <li><a class="dropdown-item fw-bold d-flex justify-content-between" href="{{ route('users.show', ['user_id' => Auth::user()->id]) }}">
+                                My Profile <i class="bi bi-person-circle"></i></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

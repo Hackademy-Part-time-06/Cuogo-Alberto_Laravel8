@@ -39,7 +39,10 @@ use Illuminate\Support\Facades\Route;
 // ]);
 
 Route::get('/', [PageController::class, 'homepage'])->name('homepage');
-Route::get('/profile/{user_id}', [PageController::class, 'profile'])->name('profile');
+
+Route::get('/profile/{user_id}', [PageController::class, 'show'])->name('users.show');
+Route::get('/profile/{user_id}/edit', [PageController::class, 'edit'])->name('users.edit');
+Route::put('/profile/{user_id}/update', [PageController::class, 'update'])->name('users.update');
 
 
 Route::resource('books', BookController::class);

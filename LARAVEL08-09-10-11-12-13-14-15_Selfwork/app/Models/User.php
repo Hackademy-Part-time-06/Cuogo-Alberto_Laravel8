@@ -19,8 +19,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'img',
         'email',
         'password',
+        'gender',
+        'birthday',
+        'description',
     ];
 
     /**
@@ -41,6 +45,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'birthday' => 'datetime',
     ];
 
     public function books()

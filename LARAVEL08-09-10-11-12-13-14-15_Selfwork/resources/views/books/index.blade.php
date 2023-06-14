@@ -21,7 +21,7 @@
                 @forelse ($books as $book)
                 <tr class="align-middle">
                     <th scope="row" class="text-center">{{$loop->iteration}}</th>
-                    <td class="text-center"><img class="card-img mh-8"
+                    <td class="text-center"><img class="card-img max-vh-8"
                         src="{{ empty($book->img) ? Storage::url('\images\placeholder.jpg') : Storage::url($book->img) }}"
                         alt="{{ $book->title }}"></td>
                     <td>{{$book['title']}}</td>
