@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
 
-              <form action="{{ route('users.update', ['user_id' => Auth::user()->id]) }}" method="POST"
+              <form action="{{ route('users.update', ['user' => Auth::user()]) }}" method="POST"
                 enctype="multipart/form-data">
                 @method('PUT')
                 @csrf

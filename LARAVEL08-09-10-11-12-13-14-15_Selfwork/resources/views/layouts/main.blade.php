@@ -16,9 +16,11 @@
 <body class="container-fluid min-vh-100 p-0">
     <x-navbar />
 
-    <main class="container pt-5 px-5">
+    <main class="container min-vh-84 pt-5 px-5">
         {{ $slot }}
     </main>
+
+    <x-footer />
 </body>
 
 </html>

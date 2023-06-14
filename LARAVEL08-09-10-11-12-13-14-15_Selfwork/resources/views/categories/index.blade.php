@@ -52,7 +52,7 @@
 
     @auth
         <div class="d-flex justify-content-center mt-5">
-            <a href="{{ route('categories.create') }}" class="text-center w-50 bg-primary rounded text-light mb-4 px-5 py-3 fs-3 text-decoration-none">Add Category<i class="bi bi-folder-plus ms-3"></i></a> 
+            <a href="{{ route('categories.create') }}" class="text-center w-30 bg-primary rounded text-light mb-4 px-5 py-3 fs-3 text-decoration-none">Add Category<i class="bi bi-folder-plus ms-3"></i></a> 
         </div>
     @endauth
 </x-main>

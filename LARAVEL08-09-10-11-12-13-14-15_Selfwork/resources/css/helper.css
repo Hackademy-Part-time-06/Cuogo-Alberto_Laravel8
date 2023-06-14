@@ -23,6 +23,10 @@
     min-height: 75vh;
 }
 
+.min-vh-84 {
+    min-height: 84.4vh;
+}
+
 .max-vh-8 {
     max-height: 8vh !important;
 }
@@ -44,4 +48,12 @@
 
 .bottom-75 {
     bottom: 75%;
+}
+
+.end-18 {
+    right: 18%;
+}
+
+.top-20 {
+    top: 20%;
 }

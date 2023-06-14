@@ -1,6 +1,7 @@
 import 'bootstrap';
 
-console.log('hello');
+console.log('Loading JS...');
+console.log('JS loaded!');
 
 let sessionSuccess = document.getElementById("sessionSuccess");
 let sessionEdit = document.getElementById("sessionEdit");
@@ -18,3 +19,7 @@ setTimeout(function() {
 setTimeout(function() {
     sessionDelete.style.display = 'none';
 }, 3000);
+
+
+
+

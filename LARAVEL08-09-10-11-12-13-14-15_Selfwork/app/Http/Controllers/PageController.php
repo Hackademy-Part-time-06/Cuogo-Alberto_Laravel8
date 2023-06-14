@@ -55,7 +55,7 @@ class PageController extends Controller
             'name' =>$request->name,
             'img' =>$path_image,
             'email' =>$request->email,
-            'password' =>$request->password,
+            // 'password' =>$request->password,
             'gender' =>$request->gender,
             'birthday' =>$request->birthday,    
             'description' =>$request->description,

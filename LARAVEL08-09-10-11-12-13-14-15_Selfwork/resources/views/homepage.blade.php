@@ -1,7 +1,7 @@
 <x-main>
     <x-slot name="title">LIBRARY | Homepage</x-slot>
 
-        <div class="row g-4 text-center align-items-center min-vh-75 mt-5">
+        <div class="row g-4 text-center align-items-center min-vh-75 mt-3">
             <div class="col-4">
                 <div class="card pb-4 border-0 shadow">
                     <img src="\img\books.png" class="card-img-top position-absolute w-50 bottom-75 start-25" alt="books">
