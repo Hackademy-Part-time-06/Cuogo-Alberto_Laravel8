@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,12 +12,19 @@ class PageController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('homepage');
+        $this->middleware('auth')->except('homepage', 'search');
     }
 
     public function homepage()
     {
         return view('homepage');
+    }
+
+    public function search(Request $request) 
+    {
+        $book_search = Book::where('title', $request->search_book)->get();
+
+        return view('books.index', ['books' => $book_search]);
     }
 
     public function show($user_id)

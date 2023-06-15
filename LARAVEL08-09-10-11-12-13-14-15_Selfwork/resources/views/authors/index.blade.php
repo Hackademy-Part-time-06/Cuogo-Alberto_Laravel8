@@ -45,7 +45,7 @@
                     </td>
                 </tr>
                 @empty
-                <tr colspan="4"> </tr>
+                <td colspan="12" class="text-center mt-4 text-dark text-opacity-75"><em>No authors found...</em></td>
                 @endforelse
             </tbody>
         </table>

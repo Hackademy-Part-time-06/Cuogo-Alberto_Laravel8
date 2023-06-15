@@ -41,6 +41,14 @@ h1 {
 }
 
 
+/* ! SEARCH */
+
+#search_book:focus {
+    box-shadow: none;
+    border-color: lightgray;
+}
+
+
 /* ! CARD */
 
 .card {

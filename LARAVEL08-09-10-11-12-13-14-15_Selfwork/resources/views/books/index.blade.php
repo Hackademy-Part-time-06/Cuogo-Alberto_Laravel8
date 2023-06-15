@@ -1,8 +1,15 @@
 <x-main>
     <x-slot name="title">LIBRARY | All Books</x-slot>
 
-    <h1 class="text-center mb-4">ALL BOOKS</h1>
+    <h1 class="text-center mb-4"><a href="{{ route('books.index') }}" class="text-black text-decoration-none">ALL BOOKS</a></h1>
 
+    <form class="d-flex w-50 mx-auto mb-5 input-group" action="{{ route('search')}}" method="POST">
+        @method('POST')
+        @csrf
+
+        <input class="form-control rounded-start" id="search_book" name="search_book" type="search" placeholder="Search a Book...">
+        <button class="input-group-text btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+    </form>
 
     <x-session />
 
@@ -44,12 +51,10 @@
                             @endauth
 
                         </div>
-
-
                     </td>
                 </tr>
                 @empty
-                <tr colspan="4"> </tr>
+                <td colspan="12" class="text-center mt-4 text-dark text-opacity-75"><em>No books found...</em></td>
                 @endforelse
             </tbody>
         </table>
